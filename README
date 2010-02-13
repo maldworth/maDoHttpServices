@@ -1,0 +1,23 @@
+maDoHttpServices
+================
+
+This library was created to allow access to various Todo (aka Getting Things Done) online services such as ToodleDo, RTM, Todoist. It is an unofficial implementation, and currently only supports ToodleDo (however others should be easily addable).
+
+This initial commit was made by me (maldworth) m@maldworth.com, and hopefully will get contributions from others here at github.
+
+For instructions on usage, see the Wiki
+
+This project is under the FreeBSD License, for details view the LICENSE.txt
+
+Dependencies
+============
+If running on android, you'll only need joda-time-1.6.jar, as android SDK has httpcore and httpclient already included. Ideally, I'd like to get rid of the joda-time dependency, and just use java's built in datetime.
+
+If running on windows you'll need:
+apache-mime4j-0.6.jar
+commons-codec-1.3.jar
+commons-logging-1.1.1.jar
+httpclient-4.0.jar
+httpcore-4.0.1.jar
+httpmime-4.0.jar
+joda-time-1.6.jar
