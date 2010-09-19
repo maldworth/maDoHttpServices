@@ -288,7 +288,7 @@ public class Tasks extends ToodledoResponseModelBase
 				}else if(_inTimerTag) {
 					//TODO some funky stuff described in the api docs
 				}else if(_inNoteTag) {
-					_tmpTask.setNote(new String(ch, start, length));
+					_tmpTask.appendNote(new String(ch, start, length));
 				}
 			}
 		}

@@ -4,6 +4,7 @@ import com.maldworth.toodledo.enums.Priority;
 import com.maldworth.toodledo.enums.Reminder;
 import com.maldworth.toodledo.enums.Repeat;
 import com.maldworth.toodledo.enums.Status;
+import com.maldworth.utils.Helpers;
 
 public class Task
 {
@@ -222,5 +223,12 @@ public class Task
 	}
 	public void setNote(String note) {
 		_note = note;
+	}
+	public void appendNote(String note)
+	{
+		if(Helpers.isNullOrEmptyOrBlank(_note))
+			_note = note;
+		else
+			_note.concat(note);
 	}
 }

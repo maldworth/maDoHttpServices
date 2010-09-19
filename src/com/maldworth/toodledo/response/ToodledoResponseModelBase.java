@@ -13,6 +13,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import com.maldworth.httpservices.BasicXmlResponseModel;
+import com.maldworth.utils.Constants;
 
 public abstract class ToodledoResponseModelBase extends BasicXmlResponseModel
 {
@@ -21,7 +22,8 @@ public abstract class ToodledoResponseModelBase extends BasicXmlResponseModel
 	
 	public ToodledoResponseModelBase()
 	{
-		super(true);//The static class in here also has a variable for isAndroid, so remember that
+		//True for android, False for not. #### ALSO CHANGE STATIC CLASS BELOW ####
+		super(Constants.isAndroid);//The static class in here also has a variable for isAndroid, so remember that
 		// TODO Auto-generated constructor stub
 	}
 
@@ -83,9 +85,9 @@ public abstract class ToodledoResponseModelBase extends BasicXmlResponseModel
 	
 	static class ErrorXmlHandler extends DefaultHandler
 	{
-		private boolean _isAndroid = true;//CHANGE TO false if using on Desktop
+		private boolean _isAndroid = Constants.isAndroid;//CHANGE TO false if using on Desktop
 		private boolean _inErrorTag = false;
-		private String _errorMessage = "This shouldn't happen. Let maldworth know.";
+		private String _errorMessage = "This shouldn't happen. You might not have set the isAndroid flag in constants to true or false. Otherwise let maldworth know about this issue and how to reproduce it.";
 
 		@Override
 		public void characters(char[] ch, int start, int length)

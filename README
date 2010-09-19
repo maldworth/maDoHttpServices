@@ -1,4 +1,4 @@
-maDoHttpServices
+maDoHttpServices Version 1.1
 ================
 
 This library was created to allow access to various Todo (aka Getting Things Done) online services such as ToodleDo, RTM, Todoist. It is an unofficial implementation, and currently only supports ToodleDo (however others should be easily addable).
@@ -21,3 +21,13 @@ httpclient-4.0.jar
 httpcore-4.0.1.jar
 httpmime-4.0.jar
 joda-time-1.6.jar
+
+Change Log
+==========
+v1.1
+-Revamped the authentication mechanism. Now expired tokens or improper keys will trigger reauthentication if possible.
+-Fixed a Bug where Tasks.setNote(String) was called from Task, because each line in a task was interpreted individually by the SAX Parser.
+
+Contributions
+=============
+-v1.1: A big thanks to Alan P. for finding the Tasks setNote bug.

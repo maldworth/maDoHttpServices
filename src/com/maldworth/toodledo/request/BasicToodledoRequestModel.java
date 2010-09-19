@@ -3,32 +3,29 @@ package com.maldworth.toodledo.request;
 import org.apache.http.NameValuePair;
 
 import com.maldworth.httpservices.DefaultRequestModelBase;
-import com.maldworth.toodledo.Credentials;
+import com.maldworth.utils.Helpers;
 
 public class BasicToodledoRequestModel extends DefaultRequestModelBase
 {
-	public BasicToodledoRequestModel(String method, Credentials credentials)
+	public BasicToodledoRequestModel(String method, String key)
 	{
-		super("method", method);
-		
-		if(credentials != null)
-			setCredentials(credentials);
+		this(method, key, false);
 	}
 	
-	public BasicToodledoRequestModel(String method, Credentials credentials, boolean unixTime)
+	public BasicToodledoRequestModel(String method, String key, boolean unixTime)
 	{
 		super("method", method);
 		
-		if(credentials != null)
-			setCredentials(credentials);
+		if(Helpers.isNullOrEmpty(key) == false)
+			setKey(key);
 		
 		if(unixTime == true)
 			this.addParam("unix", unixTime);
 	}
 	
-	public void setCredentials(Credentials credentials)
+	public void setKey(String key)
 	{
-		this.addParam("key", credentials.getKey());
+		this.addParam("key", key);
 	}
 	
 	protected boolean hasKey()
